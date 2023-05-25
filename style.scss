@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+@mixin flexstyle($direction, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: center;
+}
+@mixin bd($radius,$border-width) {
+    border:$border-width solid black;
+    border-radius: $radius;
+}
+@mixin font($size,$weight) {
+    font-size: $size;
+    font-weight: $weight;
+}
+.timer-pad{
+    width: 60%;
+    margin: auto;
+    @include bd(8px,2px);
+    @include flexstyle(column, center);
+    .select-time{
+        padding: 1.1rem  1.25rem;
+        @include flexstyle(row, space-around);
+        span{
+            @include font(1.1rem, 600);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0.3rem 1rem;
+        }
+        div{
+            label{
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                @include font(1.05rem, 500);
+                margin-right: 0.9rem;
+            }
+            input{
+                user-select: auto;
+                width: 10vw;
+                padding: 0.5rem;
+                outline: none;
+                @include bd(3px , 1.54px);
+            }
+        }
+    }
+    button{
+        margin: 0.8rem 0;
+        padding: 0.3rem 0.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        background-color: #007bff;
+        cursor: pointer;
+        :hover{
+            background-color: #0e7aee;
+        }
+        @include font(0.9rem, 600);
+        @include bd(5px, 1.8px)
+    }
+    .countdown-div{
+        @include flexstyle(row, center);
+        h2{
+            margin: 1rem 1.2rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            @include font(1.3rem, 550);
+            user-select: none;
+        }
+        div{
+            @include flexstyle(column, center);
+            @include font(2.12rem, 300);
+            @include bd(3px, 1.5px);
+            padding: 0.55rem;
+            margin: 0.95rem 0.3rem;
+        }
+        span{
+            @include font(1.9rem, 800);
+        }
+        button{
+            display: none;
+            margin: 0 1.5rem;
+        }
+    }
+}
